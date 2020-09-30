@@ -1,3 +1,3 @@
 [submodule ".github/codeql"]
 	path = .github/codeql
-	url = git@github.com:michael-scott-paper-company/private-codeql-config.git
+	url = git@github.com:michael-scott-paper-company/private-codeql-config
