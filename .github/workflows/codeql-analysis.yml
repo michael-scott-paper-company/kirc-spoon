@@ -24,7 +24,7 @@ jobs:
       with:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
         repository: michael-scott-paper-company/private-codeql-config
-        path: kirc-spoon/.github
+        path: .github/codeql
     - run: pwd && ls -R .github
     - run: git checkout HEAD^2
       if: ${{ github.event_name == 'pull_request' }}
@@ -32,7 +32,7 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
          languages: ${{ matrix.language }}
-         config-file: ./.github/private-codeql-config/config.yml
+         config-file: ./.github/codeql/config.yml
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1
     - name: Perform CodeQL Analysis
