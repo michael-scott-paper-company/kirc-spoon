@@ -19,16 +19,20 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - run: pwd && ls -R
+    - name: Checkout Code-Scanning configuration
+      uses: actions/checkout@v2
       with:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
-        submodules: true
+        repository: michael-scott-paper-company/private-codeql-config
+        path: kirc-spoon/.github
     - run: git checkout HEAD^2
       if: ${{ github.event_name == 'pull_request' }}
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
          languages: ${{ matrix.language }}
-         config-file: ./.github/codeql/config.yml
+         config-file: ./.github/private-codeql-config/config.yml
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1
     - name: Perform CodeQL Analysis
