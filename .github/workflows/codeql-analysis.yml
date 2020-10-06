@@ -6,8 +6,13 @@ jobs:
     name: A job to say hello
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      with:
+        ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
+        repository: michael-scott-paper-company/hello-world-composite-run-steps-action
+        path: .github/actions
     - id: foo
-      uses: michael-scott-paper-company/hello-world-composite-run-steps-action@master
+      uses: ./.github/actions
       with:
         who-to-greet: 'PAM'
     - run: echo random-number ${{ steps.foo.outputs.random-number }} 
