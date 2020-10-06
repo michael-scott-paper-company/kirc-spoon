@@ -18,21 +18,8 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Checkout configuration
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2'
+    - uses: michael-scott-paper-company/private-codeql-action@v1
       with:
+        language: cpp
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
-        repository: michael-scott-paper-company/private-codeql-config
-        path: .github/codeql
-    - run: git checkout HEAD^2
-      if: ${{ github.event_name == 'pull_request' }}
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-         languages: ${{ matrix.language }}
-         config-file: ./.github/codeql/config.yml
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
