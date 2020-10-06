@@ -9,6 +9,6 @@ jobs:
     - id: foo
       uses: michael-scott-paper-company/hello-world-composite-run-steps-action@master
       with:
-        who-to-greet: ' David Wallace'
+        who-to-greet: 'PAM'
     - run: echo random-number ${{ steps.foo.outputs.random-number }} 
       shell: bash
