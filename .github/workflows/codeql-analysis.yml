@@ -9,7 +9,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
-        repository: michael-scott-paper-company/hello-world-composite-run-steps-action
+        ref: gh-action
+        repository: michael-scott-paper-company/private-codeql-config
         path: .github/actions
     - id: foo
       uses: ./.github/actions
