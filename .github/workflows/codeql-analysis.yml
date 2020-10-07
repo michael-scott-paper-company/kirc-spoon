@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  Custom-CodeQL:
+  analyze:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -13,5 +13,7 @@ jobs:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
         ref: gh-action
         repository: michael-scott-paper-company/private-codeql-config
-        path: .github/action
-    - uses: ./.github/action
+        path: .github/action/custom-codeql
+    - uses: ./.github/action/custom-codeql
+      with:
+        language: cpp
