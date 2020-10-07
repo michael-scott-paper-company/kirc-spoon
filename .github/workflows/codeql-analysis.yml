@@ -2,7 +2,6 @@ name: Custom CodeQL
 
 on:
   push:
-    branches: [codeql-action-1]
 
 jobs:
   Custom-CodeQL:
