@@ -1,10 +1,8 @@
 name: Custom CodeQL
 
 on:
-  workflow_dispatch:
-    inputs:
-      foo:
-        description: how is the foo?
+  push:
+    branches: [codeql-action-1]
 
 jobs:
   Custom-CodeQL:
