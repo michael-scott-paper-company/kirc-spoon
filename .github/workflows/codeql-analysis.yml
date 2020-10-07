@@ -10,5 +10,5 @@ jobs:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
         ref: gh-action
         repository: michael-scott-paper-company/private-codeql-config
-        path: .github/actions
-    - uses: ./.github/actions
+        path: .github/action
+    - uses: ./.github/action
