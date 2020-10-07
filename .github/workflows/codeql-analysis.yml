@@ -12,9 +12,4 @@ jobs:
         ref: gh-action
         repository: michael-scott-paper-company/private-codeql-config
         path: .github/actions
-    - id: foo
-      uses: ./.github/actions
-      with:
-        who-to-greet: 'PAM'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
-      shell: bash
+    - uses: ./.github/actions
