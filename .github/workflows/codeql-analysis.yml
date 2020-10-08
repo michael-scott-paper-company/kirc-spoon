@@ -1,4 +1,4 @@
-name: Custom CodeQL
+name: HomebrewL
 
 on:
   push:
@@ -13,7 +13,8 @@ jobs:
         ssh-key: ${{ secrets.GHAS_DEPLOY_KEY }}
         ref: composite-run-steps
         repository: michael-scott-paper-company/private-codeql-config
-        path: .github/action/custom-codeql
-    - uses: ./.github/action/custom-codeql
+        path: .github/action/HomebrewL
+    - uses: ./.github/action/HomebrewL
       with:
         language: cpp
+        suite: security-and-quality
